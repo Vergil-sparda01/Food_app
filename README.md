@@ -1,3 +1,3 @@
-Posakor
+Posakorn
 
 โปรแกรมอาหาร
