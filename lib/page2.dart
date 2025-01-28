@@ -17,6 +17,7 @@ class Page2 extends StatefulWidget {
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _Page2State createState() => _Page2State();
 }
 
@@ -88,7 +89,9 @@ class _Page2State extends State<Page2> {
   }
 
   void _launchURL(String url) async {
+    // ignore: deprecated_member_use
     if (await canLaunch(url)) {
+      // ignore: deprecated_member_use
       await launch(url);
     } else {
       throw 'ไม่สามารถเปิด URL ได้: $url';

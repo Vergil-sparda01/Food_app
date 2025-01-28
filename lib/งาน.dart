@@ -1,11 +1,21 @@
+// ignore: duplicate_ignore
+// ignore: file_names, duplicate_ignore
+// ignore: file_names, duplicate_ignore
+// ignore: file_names
+// ignore_for_file: file_names
+
+library;
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp(  ));
+  runApp(const MyApp(  ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'แนะนำอาหารและของว่าง',
@@ -14,37 +24,39 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false, 
       
-      home: FoodAndSnackScreen(),
+      home: const FoodAndSnackScreen(),
     );
   }
 }
 
 class FoodAndSnackScreen extends StatelessWidget {
+  const FoodAndSnackScreen({super.key});
+
   @override 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("แนะนำอาหารและของว่าง"),
+        title: const Text("แนะนำอาหารและของว่าง"),
         backgroundColor: Colors.red,
       ),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         children: [
           
-          Text(
+          const Text(
             "อาหาร",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           for (int i = 0; i < 5; i++) FoodItemCard(index: i),
           
          
-          SizedBox(height: 24),
-          Text(
+          const SizedBox(height: 24),
+          const Text(
             "ของว่าง",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           for (int i = 0; i < 3; i++) SnackItemCard(index: i),
         ],
       ),
@@ -52,8 +64,8 @@ class FoodAndSnackScreen extends StatelessWidget {
         onPressed: () {
           
         },
-        child: Icon(Icons.add),
         tooltip: 'เพิ่ม',
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -63,9 +75,10 @@ class FoodAndSnackScreen extends StatelessWidget {
 class FoodItemCard extends StatelessWidget {
   final int index;
 
-  FoodItemCard({required this.index});
+  const FoodItemCard({super.key, required this.index});
 
  
+  @override
   Widget build(BuildContext context) {
     final List<String> foodNames = [
       "ซูชิ (Sushi)",
@@ -92,7 +105,7 @@ class FoodItemCard extends StatelessWidget {
         );
       },
       child: Card(
-        margin: EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.symmetric(vertical: 8),
         elevation: 4,
         child: ListTile(
           leading: Image.network(
@@ -103,7 +116,7 @@ class FoodItemCard extends StatelessWidget {
           ),
           title: Text(
             foodNames[index],
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           trailing: ElevatedButton(
             onPressed: () {
@@ -114,7 +127,7 @@ class FoodItemCard extends StatelessWidget {
                 ),
               );
             },
-            child: Text("ดูรายละเอียด"),
+            child: const Text("ดูรายละเอียด"),
           ),
         ),
       ),
@@ -126,9 +139,10 @@ class FoodItemCard extends StatelessWidget {
 class SnackItemCard extends StatelessWidget {
   final int index;
 
-  SnackItemCard({required this.index});
+  const SnackItemCard({super.key, required this.index});
 
   
+  @override
   Widget build(BuildContext context) {
     final List<String> snackNames = ["ทาร์ตไข่ (Egg Tart)", "โมจิ (Mochi)", "บราวนี่ (Brownies)"];
     final List<String> snackImages = [
@@ -147,7 +161,7 @@ class SnackItemCard extends StatelessWidget {
         );
       },
       child: Card(
-        margin: EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.symmetric(vertical: 8),
         elevation: 4,
         child: ListTile(
           leading: Image.network(
@@ -158,7 +172,7 @@ class SnackItemCard extends StatelessWidget {
           ),
           title: Text(
             snackNames[index],
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           trailing: ElevatedButton(
             onPressed: () {
@@ -169,7 +183,7 @@ class SnackItemCard extends StatelessWidget {
                 ),
               );
             },
-            child: Text("ดูรายละเอียด"),
+            child: const Text("ดูรายละเอียด"),
           ),
         ),
       ),
@@ -181,9 +195,10 @@ class SnackItemCard extends StatelessWidget {
 class FoodDetailScreen extends StatelessWidget {
   final String foodName;
 
-  FoodDetailScreen({required this.foodName});
+  const FoodDetailScreen({super.key, required this.foodName});
 
  
+  @override
   Widget build(BuildContext context) {
     final Map<String, String> foodDetails = {
       
@@ -192,18 +207,18 @@ class FoodDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("รายละเอียด $foodName")),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "ชื่ออาหาร: $foodName",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               "รายละเอียด: ${foodDetails[foodName] ?? 'ชินเล็กกินง่ายมีหลายรสชาติ'}",
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
           ],
         ),
@@ -216,7 +231,7 @@ class FoodDetailScreen extends StatelessWidget {
 class SnackDetailScreen extends StatelessWidget {
   final String snackName;
 
-  SnackDetailScreen({required this.snackName});
+  const SnackDetailScreen({super.key, required this.snackName});
 
   @override
   Widget build(BuildContext context) {
@@ -227,18 +242,18 @@ class SnackDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("รายละเอียด $snackName")),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "ชื่อขนม: $snackName",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               "รายละเอียด: ${snackDetails[snackName] ?? 'มีรสหวาน สัมผัสนุ่มลิ้นละลายในปาก'}",
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
               
             ),
           ],

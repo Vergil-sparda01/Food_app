@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'page2.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -71,6 +71,8 @@ class MyHomePage extends StatelessWidget {
     },
   ];
 
+   MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,17 +83,17 @@ class MyHomePage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           // ส่วนอาหาร
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'อาหารแนะนำ',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10),
                 ],
               ),
             ),
