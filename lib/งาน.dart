@@ -5,16 +5,16 @@
 // ignore_for_file: file_names
 
 library;
+
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp(  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,8 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      debugShowCheckedModeBanner: false, 
-      
+      debugShowCheckedModeBanner: false,
       home: const FoodAndSnackScreen(),
     );
   }
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
 class FoodAndSnackScreen extends StatelessWidget {
   const FoodAndSnackScreen({super.key});
 
-  @override 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -42,15 +41,12 @@ class FoodAndSnackScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          
           const Text(
             "อาหาร",
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           for (int i = 0; i < 5; i++) FoodItemCard(index: i),
-          
-         
           const SizedBox(height: 24),
           const Text(
             "ของว่าง",
@@ -61,9 +57,7 @@ class FoodAndSnackScreen extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          
-        },
+        onPressed: () {},
         tooltip: 'เพิ่ม',
         child: const Icon(Icons.add),
       ),
@@ -71,13 +65,11 @@ class FoodAndSnackScreen extends StatelessWidget {
   }
 }
 
-
 class FoodItemCard extends StatelessWidget {
   final int index;
 
   const FoodItemCard({super.key, required this.index});
 
- 
   @override
   Widget build(BuildContext context) {
     final List<String> foodNames = [
@@ -123,7 +115,8 @@ class FoodItemCard extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => FoodDetailScreen(foodName: foodNames[index]),
+                  builder: (context) =>
+                      FoodDetailScreen(foodName: foodNames[index]),
                 ),
               );
             },
@@ -135,16 +128,18 @@ class FoodItemCard extends StatelessWidget {
   }
 }
 
-
 class SnackItemCard extends StatelessWidget {
   final int index;
 
   const SnackItemCard({super.key, required this.index});
 
-  
   @override
   Widget build(BuildContext context) {
-    final List<String> snackNames = ["ทาร์ตไข่ (Egg Tart)", "โมจิ (Mochi)", "บราวนี่ (Brownies)"];
+    final List<String> snackNames = [
+      "ทาร์ตไข่ (Egg Tart)",
+      "โมจิ (Mochi)",
+      "บราวนี่ (Brownies)"
+    ];
     final List<String> snackImages = [
       "https://www.verasu.com/media/amasty/blog/egg_tart_880x518.jpg",
       "https://image.makewebcdn.com/makeweb/m_1920x0/DFCAvdp6Z/DefaultData/%E0%B9%84%E0%B8%97%E0%B8%9F%E0%B8%B9%E0%B8%81%E0%B8%B8%E0%B9%82%E0%B8%A1%E0%B8%88%E0%B8%B4.jpg",
@@ -156,7 +151,8 @@ class SnackItemCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => SnackDetailScreen(snackName: snackNames[index]),
+            builder: (context) =>
+                SnackDetailScreen(snackName: snackNames[index]),
           ),
         );
       },
@@ -179,7 +175,8 @@ class SnackItemCard extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SnackDetailScreen(snackName: snackNames[index]),
+                  builder: (context) =>
+                      SnackDetailScreen(snackName: snackNames[index]),
                 ),
               );
             },
@@ -191,18 +188,14 @@ class SnackItemCard extends StatelessWidget {
   }
 }
 
-
 class FoodDetailScreen extends StatelessWidget {
   final String foodName;
 
   const FoodDetailScreen({super.key, required this.foodName});
 
- 
   @override
   Widget build(BuildContext context) {
-    final Map<String, String> foodDetails = {
-      
-    };
+    final Map<String, String> foodDetails = {};
 
     return Scaffold(
       appBar: AppBar(title: Text("รายละเอียด $foodName")),
@@ -227,7 +220,6 @@ class FoodDetailScreen extends StatelessWidget {
   }
 }
 
-
 class SnackDetailScreen extends StatelessWidget {
   final String snackName;
 
@@ -235,9 +227,7 @@ class SnackDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Map<String, String> snackDetails = {
-      
-    };
+    final Map<String, String> snackDetails = {};
 
     return Scaffold(
       appBar: AppBar(title: Text("รายละเอียด $snackName")),
@@ -254,7 +244,6 @@ class SnackDetailScreen extends StatelessWidget {
             Text(
               "รายละเอียด: ${snackDetails[snackName] ?? 'มีรสหวาน สัมผัสนุ่มลิ้นละลายในปาก'}",
               style: const TextStyle(fontSize: 16),
-              
             ),
           ],
         ),

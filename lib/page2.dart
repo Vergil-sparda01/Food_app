@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; 
+import 'package:url_launcher/url_launcher.dart';
 
 class Page2 extends StatefulWidget {
   final String videoUrl;
@@ -98,4 +97,3 @@ class _Page2State extends State<Page2> {
     }
   }
 }
-
