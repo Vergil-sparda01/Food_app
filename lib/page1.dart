@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; // ใช้สำหรับเปิด URL
+import 'page2.dart';
 
 void main() {
   runApp(MyApp());
@@ -44,7 +44,7 @@ class MyHomePage extends StatelessWidget {
     {
       'videoUrl': 'https://www.youtube.com/watch?v=AmC9SmCBUj4',
       'title': 'สเต็ก (steak)',
-      'imageUrl': 'https://img.kapook.com/u/2015/surauch/cook2/steak-1.jpg',
+      'imageUrl': 'https://www.seriouseats.com/thmb/-KA2hwMofR2okTRndfsKtapFG4Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__05__Anova-Steak-Guide-Sous-Vide-Photos15-beauty-159b7038c56a4e7685b57f478ca3e4c8.jpg',
       'description': 'สเต็ก (steak) ได้อารมคนชอบกินเนื้อหรืออาหารที่ไม่ยุ่งยากในการทำมากๆ'
     },
   ];
@@ -150,15 +150,17 @@ class MyHomePage extends StatelessWidget {
   }
 
   Widget _buildMenuLink(String title, BuildContext context, String videoUrl, String imageUrl, String description) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Center(
+       child: Column()
+       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(8.0),
           child: Image.network(
             imageUrl,
-            width: 45,
-            height: 25,
+            width: 150,
+            height: 100,
             fit: BoxFit.cover,
             loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
               if (loadingProgress == null) {
@@ -182,11 +184,13 @@ class MyHomePage extends StatelessWidget {
         const SizedBox(height: 10),
         Text(
           title,
+          textAlign: TextAlign.center,
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 5),
         Text(
           description,
+          textAlign: TextAlign.center,
           style: const TextStyle(fontSize: 14, color: Colors.grey),
         ),
         const SizedBox(height: 10),
@@ -211,63 +215,3 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class Page2 extends StatelessWidget {
-  final String videoUrl;
-  final String title;
-  final String imageUrl;
-  final String description;
-
-  const Page2({super.key, 
-    required this.videoUrl,
-    required this.title,
-    required this.imageUrl,
-    required this.description,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: Image.network(
-                imageUrl,
-                width: 45,
-                height: 25,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              title,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              description,
-              style: const TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => _launchURL(videoUrl),
-              child: const Text('ไปที่ YouTube'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'ไม่สามารถเปิด URL ได้: $url';
-    }
-  }
-}
