@@ -149,10 +149,16 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuLink(String title, BuildContext context, String videoUrl, String imageUrl, String description) {
-    return Center(
-       child: Column()
-       mainAxisAlignment: MainAxisAlignment.center,
+  Widget _buildMenuLink(
+  String title,
+  BuildContext context,
+  String videoUrl,
+  String imageUrl,
+  String description,
+) {
+  return Center(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         ClipRRect(
@@ -211,7 +217,9 @@ class MyHomePage extends StatelessWidget {
           child: const Text('หน้าถัดไป'),
         ),
       ],
-    );
-  }
+    ),
+  );
+}
+
 }
 
