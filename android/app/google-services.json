@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "33259144713",
+    "project_id": "monly-a7092",
+    "storage_bucket": "monly-a7092.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33259144713:android:e7173fdfea4dd9a7589ad8",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-mAVXEQVccWYmTreYBD29rUKBJXFYk-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
