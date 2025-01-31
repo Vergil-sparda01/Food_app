@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'monly-a7092.firebasestorage.app',
     measurementId: 'G-JCRP2TF5ZW',
   );
+
 }
