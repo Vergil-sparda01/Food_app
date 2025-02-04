@@ -226,7 +226,7 @@ class MyHomePage extends StatelessWidget {
             child: const Text('หน้าถัดไป'),
           ),
         ],
-      ),
+      ),000
     );
   }
 }
