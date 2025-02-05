@@ -5,7 +5,7 @@ class Page2 extends StatefulWidget {
   final String videoUrl;
   final String title;
   final String imageUrl;
-  fi String description;
+  final String description;
 
   const Page2({
     super.key,
